@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Experience Information{% endblock %}
+
+{% block content %}
+<h1>Enter Your Work Experience</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="job_title" class="form-label">Job Title</label>
+        {{ form.job_title }}
+    </div>
+    <div class="mb-3">
+        <label for="company_name" class="form-label">Company Name</label>
+        {{ form.company_name }}
+    </div>
+    <div class="mb-3">
+        <label for="start_date" class="form-label">Start Date</label>
+        {{ form.start_date }}
+    </div>
+    <div class="mb-3">
+        <label for="end_date" class="form-label">End Date</label>
+        {{ form.end_date }}
+    </div>
+    <div class="mb-3">
+        <label for="job_description" class="form-label">Job Description</label>
+        {{ form.job_description }}
+    </div>
+    <button type="submit" class="btn btn-primary">Save and Continue</button>
+</form>
+{% endblock %}

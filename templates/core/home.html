@@ -1,0 +1,47 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Builder - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0 flex items-center space-x-2">
+          <img src="https://img.icons8.com/color/48/resume.png" alt="Logo" class="w-8 h-8" />
+          <span class="text-xl font-bold text-blue-600">ResumeBuilder</span>
+        </div>
+        <nav class="hidden md:flex space-x-6">
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition">About</a>
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex items-center justify-center">
+    <div class="bg-white shadow-xl rounded-3xl p-10 text-center w-full max-w-2xl mt-12 mx-4">
+      <h1 class="text-4xl font-extrabold text-gray-800 mb-4">🚀 Welcome to Resume Builder</h1>
+      <p class="text-lg text-gray-600 mb-6">Create a stunning professional resume in just a few steps!</p>
+      <a href="{% url 'personal_info' %}"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-6 rounded-xl transition duration-300 shadow-md">
+        Start Building Your Resume
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center py-4 shadow-inner text-gray-500 text-sm">
+    &copy; {{ year|default:"2025" }} ResumeBuilder. All rights reserved.
+  </footer>
+
+</body>
+</html>

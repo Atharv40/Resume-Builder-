@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Preview</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        h1 { color: #333; }
+        .section { margin-bottom: 20px; }
+        .section h2 { color: #555; }
+        .section ul { list-style-type: none; padding-left: 0; }
+        .section li { margin: 5px 0; }
+        .resume-header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="resume-header">
+        <h1>{{ personal_info.first_name }} {{ personal_info.last_name }}</h1>
+        <p><strong>Email:</strong> {{ personal_info.email }}</p>
+        <p><strong>Phone:</strong> {{ personal_info.phone_number }}</p>
+        <p><strong>Address:</strong> {{ personal_info.address }}</p>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <ul>
+            {% for edu in education_info %}
+            <li>{{ edu.degree }} from {{ edu.institution }} ({{ edu.start_date }} to {{ edu.end_date }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Work Experience</h2>
+        <ul>
+            {% for exp in experience_info %}
+            <li>{{ exp.job_title }} at {{ exp.company_name }} ({{ exp.start_date }} to {{ exp.end_date }})</li>
+            <li>{{ exp.job_description }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Certifications</h2>
+        <ul>
+            {% for cert in certification_info %}
+            <li>{{ cert.certification_name }} from {{ cert.issuing_organization }} (Issued: {{ cert.issue_date }} Expiration: {{ cert.expiration_date }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

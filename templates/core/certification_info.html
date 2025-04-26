@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Certification Information{% endblock %}
+
+{% block content %}
+<h1>Enter Your Certifications</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div>
+        <label for="id_certification_name">Certification Name</label><br>
+        {{ form.certification_name }}
+    </div>
+
+    <div>
+        <label for="id_issuing_organization">Issuing Organization</label><br>
+        {{ form.issuing_organization }}
+    </div>
+
+    <div>
+        <label for="id_issue_date">Issue Date</label><br>
+        {{ form.issue_date }}
+    </div>
+
+    <div>
+        <label for="id_expiration_date">Expiration Date</label><br>
+        {{ form.expiration_date }}
+    </div>
+
+    <button type="submit">Save & Continue</button>
+</form>
+
+{% if form.errors %}
+    <div style="color: red;">
+        <h4>Form Errors:</h4>
+        {{ form.errors }}
+    </div>
+{% endif %}
+
+{% endblock %}

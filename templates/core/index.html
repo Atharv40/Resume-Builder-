@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center px-6 py-12">
+  <div class="bg-white rounded-2xl shadow-lg p-10 max-w-xl w-full text-center">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Welcome to <span class="text-blue-600">Resume Builder</span></h1>
+    <p class="mt-4 text-gray-600">Craft your professional resume effortlessly and download it as a beautiful PDF.</p>
+
+    <a href="{% url 'personal_info' %}" class="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-xl shadow-md hover:bg-blue-700 transition-all duration-300">
+      Start Building
+    </a>
+
+    <div class="mt-10">
+      <p class="text-sm text-gray-400">Need an account? <a href="{% url 'register' %}" class="text-blue-500 hover:underline">Register here</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

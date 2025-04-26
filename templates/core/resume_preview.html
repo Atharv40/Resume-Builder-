@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Resume Preview{% endblock %}
+
+{% block content %}
+<h1>Your Resume Preview</h1>
+<div class="resume-preview">
+    <h2>{{ personal_info.first_name }} {{ personal_info.last_name }}</h2>
+    <p><strong>Email:</strong> {{ personal_info.email }}</p>
+    <p><strong>Phone:</strong> {{ personal_info.phone_number }}</p>
+    <p><strong>Address:</strong> {{ personal_info.address }}</p>
+    
+    <h3>Education</h3>
+    {% for edu in education_info %}
+        <p>{{ edu.degree }} - {{ edu.institution }} ({{ edu.start_date }} to {{ edu.end_date }})</p>
+    {% endfor %}
+    
+    <h3>Work Experience</h3>
+    {% for exp in experience_info %}
+        <p>{{ exp.job_title }} at {{ exp.company_name }} ({{ exp.start_date }} to {{ exp.end_date }})</p>
+        <p>{{ exp.job_description }}</p>
+    {% endfor %}
+    
+    <h3>Certifications</h3>
+    {% for cert in certification_info %}
+        <p>{{ cert.certification_name }} from {{ cert.issuing_organization }} (Issued: {{ cert.issue_date }} Expiration: {{ cert.expiration_date }})</p>
+    {% endfor %}
+    
+    <!-- PDF Export Button -->
+    <a href="{% url 'export_pdf' user_id=personal_info.user.id %}" class="btn btn-primary">Download as PDF</a>
+</div>
+{% endblock %}
